@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mapper.FileChunkMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ruoyi.domain.DO.FileChunkDO">
+        <id column="id" property="id"/>
+        <result column="file_name" property="fileName"/>
+        <result column="file_url" property="fileUrl"/>
+        <result column="file_size" property="fileSize"/>
+        <result column="file_type" property="fileType"/>
+        <result column="file_MD5" property="fileMD5"/>
+        <result column="chunk_number" property="chunkNumber"/>
+        <result column="upload_time" property="uploadTime"/>
+        <result column="bucket_name" property="bucketName"/>
+        <result column="id_worker_name" property="idWorkerName"/>
+        <result column="upload_id" property="uploadId"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="BaseColumnList">
+        select id, file_name as fileName, file_url as fileUrl, file_size as fileSize, file_type as fileType, file_MD5 as fileMD5,
+               chunk_number as chunkNumber, upload_time as uploadTime, bucket_name as bucketName, id_worker_name as idWorkerName,
+               upload_id as uploadId
+        from hospital_file_chunk
+    </sql>
+
+    <insert id="insertFileChunkDO" parameterType="com.ruoyi.domain.DO.FileChunkDO" useGeneratedKeys="true" keyProperty="id">
+        insert into hospital_file_chunk
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="fileName != null">file_name,</if>
+            <if test="fileUrl != null">file_url,</if>
+            <if test="fileSize != null">file_size,</if>
+            <if test="fileType != null">file_type,</if>
+            <if test="fileMD5 != null">file_MD5,</if>
+            <if test="chunkNumber != null">chunk_number,</if>
+            <if test="uploadTime != null">upload_time,</if>
+            <if test="bucketName != null">bucket_name,</if>
+            <if test="idWorkerName != null">id_worker_name,</if>
+            <if test="uploadId != null">upload_id</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="fileName != null">#{fileName},</if>
+            <if test="fileUrl != null">#{fileUrl},</if>
+            <if test="fileSize != null">#{fileSize},</if>
+            <if test="fileType != null">#{fileType},</if>
+            <if test="fileMD5 != null">#{fileMD5},</if>
+            <if test="chunkNumber != null">#{chunkNumber},</if>
+            <if test="uploadTime != null">#{uploadTime},</if>
+            <if test="bucketName != null">#{bucketName},</if>
+            <if test="idWorkerName != null">#{idWorkerName},</if>
+            <if test="uploadId != null">#{uploadId}</if>
+        </trim>
+    </insert>
+
+    <select id="getFileChunkDO" resultType="com.ruoyi.domain.DO.FileChunkDO" parameterType="string">
+        <include refid="BaseColumnList"/>
+        where bucket_name = #{bucketName}
+        and upload_id = #{uploadId}
+    </select>
+
+    <delete id="removeFileChunkDO">
+        delete from hospital_file_chunk
+        where id = #{id}
+    </delete>
+</mapper>
