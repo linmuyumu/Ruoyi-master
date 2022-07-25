@@ -9,7 +9,7 @@ import com.ruoyi.domain.DO.FileDO;
 import com.ruoyi.domain.DTO.UploadFileParam;
 import com.ruoyi.service.FileChunkService;
 import com.ruoyi.service.FileService;
-import com.ruoyi.utils.MinioUtils;
+import com.ruoyi.web.core.config.MinioUtils;
 import io.minio.CreateMultipartUploadResponse;
 import io.minio.ListPartsResponse;
 import io.minio.messages.Part;
@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author diaozhiqiang
+ * @author LinMu
  * @description 描述：
  * @date 2022年07月16日
  */

@@ -1,4 +1,4 @@
-package com.ruoyi.utils;
+package com.ruoyi.web.core.config;
 
 import com.google.common.collect.Multimap;
 import io.minio.*;
@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author diaozhiqiang
+ * @author LinMu
  * @description 描述：minio上传文件工具类
  * @date 2022年06月09日
  */

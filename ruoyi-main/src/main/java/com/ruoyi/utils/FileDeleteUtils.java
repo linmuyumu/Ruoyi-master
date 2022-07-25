@@ -3,7 +3,7 @@ package com.ruoyi.utils;
 import java.io.File;
 
 /**
- * @author diaozhiqiang
+ * @author LinMu
  * @description 描述：删除指定路径下的文件及文件夹
  * @date 2022年06月15日
  */

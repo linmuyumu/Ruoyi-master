@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author diaozhiqiang
+ * @author LinMu
  * @description 描述：
  * @date 2022年07月16日
  */
@@ -22,7 +22,7 @@ public class FileDO extends BaseEntity implements Serializable {
     /**
      * 主键
      */
-    private int id;
+    private Integer id;
 
     private Long patientId;
 
@@ -98,4 +98,14 @@ public class FileDO extends BaseEntity implements Serializable {
     private String delFlag;
 
     private Long userId;
+
+    /**
+     * 旧路径
+     */
+    private String fileOldPath;
+
+    /**
+     * 新路径
+     */
+    private String fileNewPath;
 }
