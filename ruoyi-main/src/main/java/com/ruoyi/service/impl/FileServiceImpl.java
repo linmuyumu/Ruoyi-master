@@ -64,7 +64,7 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, FileDO> implements 
     }
 
     @Override
-    public int updateById(FileDO file) {
+    public int updateByFileId(FileDO file) {
         return 0;
     }
 

@@ -129,7 +129,7 @@ public class MinioController extends BaseController {
         for (FileDO file : userFiles) {
             file.setDelFlag("1");
             file.setFileDelDate(minioUtils.getDatePath());
-            fileService.updateById(file);
+            fileService.updateByFileId(file);
         }
         return AjaxResult.success("删除成功");
     }
@@ -214,7 +214,7 @@ public class MinioController extends BaseController {
             fileService.setDelTimeNull(file.getId());
             file.setFileDelDate(null);
 //            file.setFileDelDate("");
-            fileService.updateById(file);
+            fileService.updateByFileId(file);
         }
         return AjaxResult.success("还原文件成功");
     }
@@ -346,7 +346,7 @@ public class MinioController extends BaseController {
             fileService.updateFilePath(bucketName, fileOldPath, fileNewPath);
 
         }
-        fileService.updateById(fileUpUrl);
+        fileService.updateByFileId(fileUpUrl);
         return AjaxResult.success("文件移动成功");
     }
 
@@ -361,7 +361,7 @@ public class MinioController extends BaseController {
                 fileService.updateFilePath(bucketName, fileOldPath, fileNewPath);
             }
             file.setFilePath(selectFileParam.getFilePath());
-            fileService.updateById(file);
+            fileService.updateByFileId(file);
         }
         return AjaxResult.success("文件移动成功");
     }

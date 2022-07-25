@@ -30,7 +30,7 @@ public interface FileService {
 
     int updateFileDOById(FileDO fileDO);
 
-    int updateById(FileDO file);
+    int updateByFileId(FileDO file);
 
     FileDO selectFileDOByParams(FileDO fileDO);
 
